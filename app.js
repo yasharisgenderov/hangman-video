@@ -67,6 +67,10 @@ function mySupposition(e) {
     alert("You win")
   }
 
+  if(selectedLettersInWord.indexOf(myLetter)===1){
+    guessCounter;
+  }
+
   if(guessCounter===0){
     loseCounter++;
     wrongGuesses = [];
