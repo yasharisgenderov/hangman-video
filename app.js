@@ -4,8 +4,6 @@ var guessCountParagraph = document.querySelector("#guessCountPara");
 var winParagraph = document.querySelector("#winPara");
 var loseParagraph = document.querySelector("#losePara");
 
-console.log(winParagraph)
-
 var wordsArray = ["yashar", "number", "ganja", "dog","grape"];
 var bottomLineArray = [];
 var bottomLineLetter = [];
@@ -72,7 +70,14 @@ function mySupposition(e) {
   if(guessCounter===0){
     loseCounter++;
     wrongGuesses = [];
+    selectedLettersInWord = randomWord.split("");
+    bottomLine = selectedLettersInWord.length;
+    bottomLineArray=[];
+    for (var i = 0; i < bottomLine; i++) {
+      bottomLineArray.push("_");
+    }
     guessCounter = 9;
+    guessParagraph.innerHTML = `${bottomLineArray.join(" ")}`;
     wrongGuessParagraph.innerHTML = `<strong>Wrong Guesses</strong>:${wrongGuesses}`;
     loseParagraph.innerHTML = `<strong>Loses</strong>: ${loseCounter}`;
     guessCountParagraph.innerHTML = `<strong>Guesses Left</strong>: ${guessCounter}`;
